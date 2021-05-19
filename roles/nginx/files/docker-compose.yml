@@ -13,7 +13,7 @@ services:
     ports:
       - "8080:8080"
       - "8443:8443"
-    command: "/bin/sh -c './docker-entrypoint.sh'"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
   certbot:
     image: certbot/certbot
     restart: unless-stopped
