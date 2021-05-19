@@ -1,0 +1,32 @@
+[local]
+localhost ansible_connection=local
+
+[ec2:children]
+environments
+local
+
+[ec2:vars]
+#use the .ssh/config
+#so you can appropriately set ssh users per host
+#ansible_ssh_user=ubuntu
+ansible_winrm_server_cert_validation=ignore
+
+[environments:children]
+dev
+staging
+production
+
+[dev:children]
+services
+
+[staging:children]
+services
+
+[production:children]
+services
+
+
+[services:children]
+nginx
+
+[nginx]
