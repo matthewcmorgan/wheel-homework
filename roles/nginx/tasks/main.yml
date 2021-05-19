@@ -1,2 +1,4 @@
 ---
 # tasks file for nginx
+- name: Build Nginx Docker Container
+  docker_image: 
