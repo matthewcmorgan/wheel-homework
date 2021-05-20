@@ -72,3 +72,5 @@ To that end, I have designed this playbook to work with a pattern like
 
 I will assume that we pass in a VPC to work in
 
+remeber to set external ip: 
+# export EXTERNAL_IP=`curl ipv4.icanhazip.com`
